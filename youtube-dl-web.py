@@ -6,14 +6,14 @@ app = Flask(__name__)
 
 @app.route("/", methods=['GET', 'POST'])
 def home():
-    error = None
+    error = False
     result = None
     url = request.form.get('url')
     if url:
         try:
             stdout = subprocess.check_output(["youtube-dl", "-j", url])
-        except subprocess.CalledProcessError as e:
-            error = e
+        except subprocess.CalledProcessError:
+            error = True
         else:
             result = json.loads(stdout.decode('utf8'))
     return render_template("home.html", error=error, result=result)

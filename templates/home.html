@@ -3,12 +3,12 @@
 <title>YouTube-URLs</title>
 
 <form method=post action="">
-  <input name=url placeholder="https://youtube.com/watch?v=...">
+  <input name=url placeholder="https://youtube.com/watch?v=..." style="min-width: 300px">
   <input type=submit value="Los geht's">
 </form>
 
 {% if error %}
-  {{ error }}
+  <p style="color: red; font-weight: bold">Fehler beim Abrufen des Videos :-(</p>
 {% endif %}
 
 {% if result %}
