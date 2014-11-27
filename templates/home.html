@@ -8,7 +8,7 @@
 </form>
 
 {% if error %}
-  <p style="color: red; font-weight: bold">Fehler beim Abrufen des Videos :-(</p>
+  <p style="color: red; font-weight: bold">{{ error|safe }}</p>
 {% endif %}
 
 {% if result %}
